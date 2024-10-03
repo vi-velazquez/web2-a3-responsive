@@ -1,0 +1,463 @@
+@charset "UTF-8";
+
+/*--------------------------------------------------------------
+    TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Settings: used with preprocessors and contain font, colors definitions, etc.
+2.0 - Tools: globally used mixins and functions. Use for preprocessor only.
+3.0 - Generic: reset and/or normalize styles, box-sizing definition, etc. 
+4.0 - Elements: styling for bare/generic HTML elements 
+        - Typography: Typography, Links, Address
+5.0 - Objects: class-based selectors which define undecorated design patterns, building blocks
+        - Framework
+6.0 - Components: specific designed components
+        - Nav
+        - Hero 
+        - Backgrounds & Spacing
+        - Footer 
+7.0 - Utilities: utilities and helper classes with ability to override anything which goes before in the triangle, eg. hide helper class
+        - Screen Reader
+8.0 - Media Queries
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+    3.0 - GENERIC
+-------------------------------------------------------------- */
+/* for some time, universal and html or body selector are all that will appear under here  */ 
+
+
+/* ----- UNIVERSAL ----- */
+
+* {
+    -o-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*--------------------------------------------------------------
+    4.0 - ELEMENTS
+    - single (not contextual) element selectors only. No classes. No IDs. No contextual selectors. 
+-------------------------------------------------------------- */
+/* shared styles across elements are grouped at the top, not under an individual elements. Reduces repeated styles */ 
+
+
+/* ----- TYPOGRAPHY ----- */
+
+h1 {
+    font-size: clamp(2.5rem, 2.8vw + 1.7rem, 3.75rem);
+    line-height: 1.4; 
+}
+
+h2 {
+    font-size: clamp(2rem, 1.4vw + 1.6rem, 2.625rem);
+    line-height: 1.3;
+}
+
+
+/* ----- LINKS ----- */
+
+a {
+    text-decoration: none;
+}
+
+/* ----- ADDRESS ----- */
+
+
+/*--------------------------------------------------------------
+    5.0 - OBJECTS
+-------------------------------------------------------------- */
+/* for some time, only .wrapper and .row are likely to appear under this category */ 
+
+/* ----- FRAMEWORK ----- */
+.wrapper {
+    margin: 0 auto;
+    max-width: 1250px;
+    padding: 0 40px;
+}
+
+.grid {
+    display: grid;
+}
+
+/*--------------------------------------------------------------
+    6.0 - COMPONENTS
+-------------------------------------------------------------- */
+/* shared styles across components are grouped at the top, not under an individual component. Reduces repeated styles */ 
+
+
+/* hero / footer / nav -- are considered components because they'd repeat on across pages on a multi page site. be careful to not get them in the habit of styling based on the 'content' that appears on the page but rather what components make those up */ 
+
+/* ----- HEADER ----- */
+
+
+/* ----- NAV ----- */
+
+li {
+    list-style-type: none;
+}
+
+/* ----- HERO ----- */
+
+
+/* ----- BACKGROUNDS AND SPACING ----- */
+
+h2 {
+    padding-bottom: 10px;
+}
+
+/* ----- FOOTER ----- */
+
+footer {
+    border-bottom: solid 16px #F2B100;
+}
+
+/*--------------------------------------------------------------
+    7.0 - UTILITY
+-------------------------------------------------------------- */
+/* only classes that could be used on 'any' element should go here  */ 
+
+.sr-only {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+/* ----- HEADER ----- */
+
+.header__content {
+    grid: auto / auto auto;
+    align-items: center;
+    padding: 25px 0;
+}
+
+.header__nav {
+    justify-self: flex-end;
+}
+
+/* ----- NAV ----- */
+
+li {
+    list-style-type: none;
+}
+
+.nav__content {
+    grid: auto / repeat(3, auto);
+    gap: 40px;
+}
+
+/* ----- HERO ----- */
+
+.hero {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.hero__content {
+    padding: 70px 40px;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.hero__description {
+    padding-top: 20px;
+}
+
+.hero__button {
+    padding-top: 20px;
+}
+
+/* ---- Main ---- */
+
+.main__content {
+    border: solid 16px #FFDDD2;
+}
+
+.main__content {
+    padding: 40px;
+    grid: auto / 370px 1fr;
+}
+
+.main__link_components {
+    justify-content: end;
+    grid: auto / repeat(2,auto);
+    align-items: flex-end;
+}
+
+.main__img {
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.main__img2 {
+    width: 24px;
+    height: 24px;
+}
+
+.main__div {
+    padding: 70px 0;
+}
+
+.div__content {
+    grid: auto / repeat(13, 1fr);
+    gap: 30px;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(62px, 1fr))
+}
+
+/* ---- Footer ---- */
+
+.footer__icons {
+    grid: auto / repeat(3, 3rem);
+    gap: 24px;
+}
+
+.footer__content {
+    grid: auto / 1fr auto;
+    padding: 60px 0;
+}
+
+.footer__links > div {
+    margin-bottom: 10px;
+}
+
+.footer__links {
+    grid-area: 1 / 2 / 3 / 3;
+}
+
+/* ---- Text Styling ---- */
+
+.txt-blk {
+    font-weight: 900;
+}
+
+.txt-bold {
+    font-weight: 700;
+}
+
+.txt-18 {
+    font-size: 1.125rem;
+}
+
+.txt-22 {
+    font-size: 1.375rem;
+}
+
+.txt-48 {
+    font-size: 3rem;
+}
+
+.lh-36 {
+    line-height: 36px;
+}
+
+.ls-15 {
+    letter-spacing: 4px;
+}
+
+.txt-pink {
+    color: #D42C59;
+}
+
+.txt-blu {
+    color: #394053;
+}
+
+.txt-white {
+    color: #fff;
+}
+
+.caps {
+    text-transform: uppercase;
+}
+
+/* ---- Background & Spacing ---- */
+
+.bg-ltpink {
+    background: #FFDDD2;
+}
+
+.bg-pink {
+    background: #D42C59;
+}
+
+.bg-ylw {
+    background: #F2B100;
+}
+
+.marg-0 {
+    margin: 0;
+}
+
+.width-688 {
+    max-width: 690px;
+}
+
+/* ---- shapes ---- */
+
+.border-100 {
+    border-radius: 100%;
+}
+
+.width-62 {
+    width: 62px;
+    height: 62px;
+}
+
+.width-47 {
+    width: 47px;
+    height: 47px;
+}
+
+/* ---- Buttons ---- */
+
+.btn-1 {
+    padding: 10px 40px;
+    color: #FFDDD2;
+}
+
+.btn-2 {
+    padding: 10px 80px;
+}
+
+.transparent {
+    border: solid 4px #FFDDD2;
+    width: 340px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/*--------------------------------------------------------------
+    8.0 - Media Queries
+-------------------------------------------------------------- */
+/* Laptop */
+@media only screen and (max-width: 1100px) {
+    .div__content > div:nth-child(n+39) {
+        display: none;
+    }
+
+    .wrapper {
+        padding: 0 40px;
+    }
+}
+/* Tablet */ 
+@media only screen and (max-width: 768px){
+    .wrapper {
+        padding: 0 30px;
+    }
+
+    .header__content {
+        grid: auto / auto;
+    }
+
+    .header__logo {
+        justify-self: center;
+    }
+
+    .header__nav {
+        background: #F2B100;
+        margin-top: 25px;
+        width: 100%;
+    }
+
+    .nav__content {
+        justify-content: center;
+    }
+
+    .main__content {
+        grid: auto / auto;
+        justify-items: start;
+    }
+
+    .main__link_components, .main__description {
+        margin-top: 30px;
+    }
+
+    .hero__description, .main__description_paragraph {
+        font-size: 1.25rem;
+    }
+
+    .btn-1 {
+        padding: 10px 50px;
+    }
+
+    .div__content > div:nth-child(n+25) {
+        display: none;
+    }
+
+    .div__content {
+        grid: auto / repeat(4, 1fr);
+        gap: 20px;
+
+    }
+
+    .footer__content {
+        grid: auto / auto;
+        justify-items: center;
+    }
+
+    .footer__icons {
+        justify-content: center;
+        order: 1;
+        padding-top: 40px;
+    }
+
+    .footer__links {
+        grid-area: auto;
+    }
+
+    .footer__logo {
+        padding-bottom: 40px;
+    }
+
+}
+
+/* Mobile */
+@media only screen and (max-width: 480px) {
+    .wrapper {
+        padding: 0 20px;
+    }
+
+    .header__content {
+        grid: auto / auto;
+    }
+
+    .header__logo {
+        justify-self: center;
+    }
+
+    .header__nav {
+        justify-self: center;
+        background: #F2B100;
+        padding: 0 60px;
+        margin-top: 25px;
+    }
+
+    .div__content > div:nth-child(n+13) {
+        display: none;
+    }
+
+    .main__content {
+        padding: 20px;
+    }
+
+    .main__img img {
+        max-width: 290px;
+    }
+
+    .main__img {
+        justify-self: center;
+    }
+}
